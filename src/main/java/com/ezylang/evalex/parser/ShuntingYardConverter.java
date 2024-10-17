@@ -24,6 +24,8 @@ import static com.ezylang.evalex.parser.Token.TokenType.STRUCTURE_SEPARATOR;
 import com.ezylang.evalex.config.ExpressionConfiguration;
 import com.ezylang.evalex.functions.FunctionIfc;
 import com.ezylang.evalex.operators.OperatorIfc;
+import com.ezylang.evalex.operators.arithmetic.InfixPowerOfOperator;
+import com.ezylang.evalex.operators.arithmetic.PrefixMinusOperator;
 import com.ezylang.evalex.parser.Token.TokenType;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -262,6 +264,14 @@ public class ShuntingYardConverter {
     // structure operator (null) has always a higher precedence than other operators
     if (nextOperator == null) {
       return true;
+    }
+
+    // with OPERATOR_PRECEDENCE_POWER_HIGHER configuration, expression 2^-2 will throw ParseException.
+    // In this case, PrefixMinus Precedence should fake bigger than InfixPowerOf (OPERATOR_PRECEDENCE_POWER_HIGHER).
+    if (currentOperator instanceof PrefixMinusOperator
+            && nextOperator instanceof InfixPowerOfOperator
+            && configuration.getPowerOfPrecedence() == OperatorIfc.OPERATOR_PRECEDENCE_POWER_HIGHER) {
+      return false;
     }
 
     if (currentOperator.isLeftAssociative()) {

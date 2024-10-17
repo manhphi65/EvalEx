@@ -37,7 +37,9 @@ class ExpressionEvaluatorPowerOfTest extends BaseExpressionEvaluatorTest {
             .build();
 
     Expression expression = new Expression("-2^2", config);
+    Expression expression1 = new Expression("2^-2", config);
 
     assertThat(expression.evaluate().getStringValue()).isEqualTo("-4");
+    assertThat(expression1.evaluate().getStringValue()).isEqualTo("0.25");
   }
 }
