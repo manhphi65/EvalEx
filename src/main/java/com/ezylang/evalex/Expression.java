@@ -369,7 +369,7 @@ public class Expression {
 
   /**
    * Converts an object value to an {@link EvaluationValue} by considering the configuration {@link
-   * EvaluationValue(Object, ExpressionConfiguration)}.
+   * EvaluationValue#of(Object, ExpressionConfiguration)}.
    *
    * @param value The object value to covert.
    * @return An {@link EvaluationValue} of the detected type and value.

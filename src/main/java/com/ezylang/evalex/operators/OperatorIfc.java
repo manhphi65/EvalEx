@@ -43,13 +43,13 @@ public interface OperatorIfc {
   /** Or operator precedence: || */
   int OPERATOR_PRECEDENCE_OR = 2;
 
-  /** And operator precedence: && */
+  /** And operator precedence: &amp;&amp; */
   int OPERATOR_PRECEDENCE_AND = 4;
 
-  /** Equality operators precedence: =, ==, !=, <> */
+  /** Equality operators precedence: =, ==, !=, &lt;&gt; */
   int OPERATOR_PRECEDENCE_EQUALITY = 7;
 
-  /** Comparative operators precedence: <, >, <=, >= */
+  /** Comparative operators precedence: &lt;, &gt;, &lt;=, &gt;= */
   int OPERATOR_PRECEDENCE_COMPARISON = 10;
 
   /** Additive operators precedence: + and - */

@@ -25,6 +25,7 @@ import java.util.List;
  * configuration.
  *
  * <table>
+ *   <caption>Standard configuration</caption>
  *   <tr>
  *     <th>Input type</th><th>Converter used</th>
  *   </tr>
@@ -47,7 +48,7 @@ import java.util.List;
  *   <tr><td>Duration</td><td>DurationConverter</td></tr>
  *   <tr><td>ASTNode</td><td>ASTNode</td></tr>
  *   <tr><td>List&lt;?&gt;</td><td>ArrayConverter - each entry will be converted</td></tr>
- *   <tr><td>Map&lt?,?&gt;</td><td>StructureConverter - each entry will be converted</td></tr>
+ *   <tr><td>Map&lt;?,?&gt;</td><td>StructureConverter - each entry will be converted</td></tr>
  * </table>
  *
  * <i>* Be careful with conversion problems when using float or double, which are fractional

@@ -94,7 +94,7 @@ public class EvaluationValue implements Comparable<EvaluationValue> {
    * @param value One of the supported data types.
    * @param configuration The expression configuration to use.
    * @throws IllegalArgumentException if the data type can't be mapped.
-   * @see ExpressionConfiguration#getEvaluationValueConverter()
+   * @see ExpressionConfiguration getEvaluationValueConverter()
    * @deprecated Use {@link EvaluationValue#of(Object, ExpressionConfiguration)} instead.
    */
   @Deprecated(since = "3.3.0", forRemoval = true)
@@ -124,7 +124,7 @@ public class EvaluationValue implements Comparable<EvaluationValue> {
    * @param value One of the supported data types.
    * @param configuration The expression configuration to use; not null
    * @throws IllegalArgumentException if the data type can't be mapped.
-   * @see ExpressionConfiguration#getEvaluationValueConverter()
+   * @see ExpressionConfiguration getEvaluationValueConverter()
    */
   public static EvaluationValue of(Object value, ExpressionConfiguration configuration) {
     return configuration.getEvaluationValueConverter().convertObject(value, configuration);
