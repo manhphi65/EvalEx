@@ -60,6 +60,8 @@ public class EvaluationValue implements Comparable<EvaluationValue> {
     STRING,
     /** Any number, stored as {@link BigDecimal}. */
     NUMBER,
+    /** Percentage value of number, associate with number before */
+    PERCENTAGE,
     /** A boolean, stored as {@link Boolean}. */
     BOOLEAN,
     /** A date time value, stored as {@link java.time.Instant}. */
@@ -242,6 +244,15 @@ public class EvaluationValue implements Comparable<EvaluationValue> {
   }
 
   /**
+   * Checks if the value is of type {@link DataType#PERCENTAGE}.
+   *
+   * @return <code>true</code> or <code>false</code>.
+   */
+  public boolean isPercentageValue() {
+    return getDataType() == DataType.PERCENTAGE;
+  }
+
+  /**
    * Checks if the value is of type {@link DataType#STRING}.
    *
    * @return <code>true</code> or <code>false</code>.
@@ -348,6 +359,7 @@ public class EvaluationValue implements Comparable<EvaluationValue> {
   public BigDecimal getNumberValue() {
     switch (getDataType()) {
       case NUMBER:
+      case PERCENTAGE:
         return (BigDecimal) value;
       case BOOLEAN:
         return (Boolean.TRUE.equals(value) ? BigDecimal.ONE : BigDecimal.ZERO);
