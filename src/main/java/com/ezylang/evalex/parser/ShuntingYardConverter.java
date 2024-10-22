@@ -266,11 +266,13 @@ public class ShuntingYardConverter {
       return true;
     }
 
-    // with OPERATOR_PRECEDENCE_POWER_HIGHER configuration, expression 2^-2 will throw ParseException.
-    // In this case, PrefixMinus Precedence should fake bigger than InfixPowerOf (OPERATOR_PRECEDENCE_POWER_HIGHER).
+    // with OPERATOR_PRECEDENCE_POWER_HIGHER configuration,
+    // expression 2^-2 will throw ParseException.
+    // In this case, PrefixMinus Precedence should fake bigger than InfixPowerOf
+    // (OPERATOR_PRECEDENCE_POWER_HIGHER).
     if (currentOperator instanceof PrefixMinusOperator
-            && nextOperator instanceof InfixPowerOfOperator
-            && configuration.getPowerOfPrecedence() == OperatorIfc.OPERATOR_PRECEDENCE_POWER_HIGHER) {
+        && nextOperator instanceof InfixPowerOfOperator
+        && configuration.getPowerOfPrecedence() == OperatorIfc.OPERATOR_PRECEDENCE_POWER_HIGHER) {
       return false;
     }
 
