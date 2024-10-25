@@ -149,6 +149,16 @@ public class EvaluationValue implements Comparable<EvaluationValue> {
    * @param value The BigDecimal value to use.
    * @return the new number value.
    */
+  public static EvaluationValue percentValue(BigDecimal value) {
+    return new EvaluationValue(value, DataType.PERCENTAGE);
+  }
+
+  /**
+   * Creates a new number value.
+   *
+   * @param value The BigDecimal value to use.
+   * @return the new number value.
+   */
   public static EvaluationValue numberValue(BigDecimal value) {
     return new EvaluationValue(value, DataType.NUMBER);
   }

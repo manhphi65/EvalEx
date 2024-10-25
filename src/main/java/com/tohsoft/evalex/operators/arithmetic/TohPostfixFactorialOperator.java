@@ -1,4 +1,4 @@
-package com.ezylang.evalex.operators.arithmetic;
+package com.tohsoft.evalex.operators.arithmetic;
 
 import com.ezylang.evalex.EvaluationException;
 import com.ezylang.evalex.Expression;
@@ -10,7 +10,7 @@ import java.math.BigDecimal;
 
 /** Unary postfix factorial. */
 @PostfixOperator(leftAssociative = true)
-public class PostfixFactorialOperator extends AbstractOperator {
+public class TohPostfixFactorialOperator extends AbstractOperator {
   @Override
   public EvaluationValue evaluate(
       Expression expression, Token operatorToken, EvaluationValue... operands)

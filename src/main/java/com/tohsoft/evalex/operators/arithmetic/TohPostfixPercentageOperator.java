@@ -1,4 +1,4 @@
-package com.ezylang.evalex.operators.arithmetic;
+package com.tohsoft.evalex.operators.arithmetic;
 
 import com.ezylang.evalex.EvaluationException;
 import com.ezylang.evalex.Expression;
@@ -10,7 +10,7 @@ import java.math.BigDecimal;
 
 /** Unary postfix percentage. */
 @PostfixOperator(leftAssociative = true)
-public class PostfixPercentageOperator extends AbstractOperator {
+public class TohPostfixPercentageOperator extends AbstractOperator {
   @Override
   public EvaluationValue evaluate(
       Expression expression, Token operatorToken, EvaluationValue... operands)
@@ -18,7 +18,7 @@ public class PostfixPercentageOperator extends AbstractOperator {
     EvaluationValue operand = operands[0];
 
     if (operand.isNumberValue()) {
-      return expression.convertValue(
+      return EvaluationValue.percentValue(
           operand
               .getNumberValue()
               .divide(new BigDecimal("100"), expression.getConfiguration().getMathContext()));
